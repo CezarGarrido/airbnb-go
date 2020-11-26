@@ -12,6 +12,7 @@ func InitRoutes(router *mux.Router, db *driver.DB) {
 
 	apiV1 := router.PathPrefix("/api/v1").Subrouter()
 	apartmentRoutes(apiV1, db)
+
 }
 
 func apartmentRoutes(router *mux.Router, db *driver.DB) {

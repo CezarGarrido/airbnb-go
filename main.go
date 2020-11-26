@@ -7,6 +7,7 @@ import (
 
 	"github.com/CezarGarrido/airbnb-go/config"
 	"github.com/CezarGarrido/airbnb-go/driver"
+	"github.com/gorilla/handlers"
 	"github.com/gorilla/mux"
 )
 
@@ -33,7 +34,11 @@ func main() {
 
 	config.InitRoutes(router, db)
 
+	headersOk := handlers.AllowedHeaders([]string{"Accept", "Content-Type", "Content-Length", "Accept-Encoding", "X-CSRF-Token", "Authorization"})
+	originsOk := handlers.AllowedOrigins([]string{"*"})
+	methodsOk := handlers.AllowedMethods([]string{"POST", "GET", "OPTIONS", "PUT", "DELETE"})
+
 	log.Println("Server running")
-	log.Fatal(http.ListenAndServe(":3000", router))
+	log.Fatal(http.ListenAndServe(":3000", handlers.CORS(headersOk, methodsOk, originsOk)(router)))
 
 }
