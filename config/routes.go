@@ -1,6 +1,8 @@
 package config
 
 import (
+	"net/http"
+
 	"github.com/gorilla/mux"
 
 	"github.com/CezarGarrido/airbnb-go/driver"
@@ -9,8 +11,13 @@ import (
 
 // InitRoutes :
 func InitRoutes(router *mux.Router, db *driver.DB) {
-
+	// Create the route
 	apiV1 := router.PathPrefix("/api/v1").Subrouter()
+
+	router.
+		PathPrefix("/").
+		Handler(http.StripPrefix("/", http.FileServer(http.Dir("./web/"))))
+
 	apartmentRoutes(apiV1, db)
 
 }
