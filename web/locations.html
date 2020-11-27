@@ -24,10 +24,7 @@
 <body>
     <!-- /.preloader -->
     <div id="preloader"></div>
-
     <div class="theme-layout">
-
-
         <div class="account-popup-sec">
           
             <div class="account-popup-area">
@@ -91,9 +88,7 @@
                 </div>
             </div>
         </div><!-- Account Popup Sec -->
-
         <div id="header"></div>  
-        
         <section class="block">
             <div class="container">
                 <div class="row">
@@ -380,9 +375,7 @@
                 </div>
             </div>
         </section>
-
         <div id="footer"></div>
-
     </div>
 
     <!-- Script -->
@@ -394,24 +387,13 @@
     <script type="text/javascript" src="js/scrolly.js"></script><!-- Parallax -->
     <script type="text/javascript" src="js/price-range.js"></script><!-- Parallax -->
     <script type="text/javascript" src="js/script.js"></script><!-- Script -->    
-
-
-    <script type="text/javascript">
-        $(document).ready(function () {
-            "use strict";
-
-        });
+    <script type="text/javascript" src="app/views/shared/shared_view.js"></script>
+    <script>
+         const sharedView = new NewSharedView();
+         const headerEl =  document.getElementById('header');
+         const footerEl =  document.getElementById('footer');
+         sharedView.showNavbar(headerEl);
+         sharedView.showFooter(footerEl);
     </script>
-
 </body>
 </html>
-
-<script type="text/javascript" src="app/views/shared/shared_view.js"></script>
-
-<script>
-         const sharedView = new NewSharedView();
-     const headerEl =  document.getElementById('header');
-     const footerEl =  document.getElementById('footer');
-     sharedView.showNavbar(headerEl);
-     sharedView.showFooter(footerEl);
-</script>

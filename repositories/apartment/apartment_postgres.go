@@ -60,7 +60,7 @@ func (pgApartmentRepo *posgresApartmentRepo) fetch(ctx context.Context, query st
 			&apartment.Likes,
 			&apartment.Price,
 			&apartment.Status,
-			&apartment.CreateadAt,
+			&apartment.CreatedAt,
 			&apartment.UpdatedAt,
 		)
 		if err != nil {

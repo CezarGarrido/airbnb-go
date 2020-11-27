@@ -26,74 +26,8 @@
     <!-- /.preloader -->
     <div id="preloader"></div>
     <div class="theme-layout">
-
-        <div class="account-popup-sec">
-
-            <div class="account-popup-area">
-                <div class="account-popup">
-                    <div class="row">
-                        <div class="col-md-6">
-                            <div class="account-user">
-                                <div class="logo">
-                                    <a href="#" title="">
-                                        <i class="fa fa-get-pocket"></i>
-                                        <span>Airbnb</span>
-                                        <strong></strong>
-                                    </a>
-                                </div><!-- LOGO -->
-                                <form>
-                                    <h1>Login Form</h1>
-                                    <div class="field">
-                                        <input type="text" placeholder="Username" />
-                                    </div>
-                                    <div class="field">
-                                        <input type="password" placeholder="Password" />
-                                    </div>
-                                    <div class="field">
-                                        <input type="submit" value="SEND NOW" class="flat-btn" />
-                                    </div>
-                                </form>
-                                <i>OR</i>
-                                <span>LOGIN WITH</span>
-                                <ul class="social-btns">
-                                    <li><a href="#" title=""><i class="fa fa-facebook"></i></a></li>
-                                    <li><a href="#" title=""><i class="fa fa-google-plus"></i></a></li>
-                                    <li><a href="#" title=""><i class="fa fa-twitter"></i></a></li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="registration-sec">
-                                <h1>SIGNUP Form</h1>
-                                <form>
-                                    <div class="field">
-                                        <input type="text" placeholder="Your Name" />
-                                    </div>
-                                    <div class="field">
-                                        <input type="text" placeholder="Your Email" />
-                                    </div>
-                                    <div class="field">
-                                        <input type="password" placeholder="Type Password" />
-                                    </div>
-                                    <div class="field">
-                                        <input type="password" placeholder="Retype Password" />
-                                    </div>
-                                    <label>
-                                        <input type="checkbox" /> By Clicking on this You are agree with our <a href="#"
-                                            title="">Terms & Condition</a>
-                                    </label>
-                                    <input type="submit" value="Singup Now" class="flat-btn" />
-                                </form>
-                            </div><!-- Registration sec -->
-                        </div>
-                    </div>
-                    <span class="close-popup"><i class="fa fa-close"></i></span>
-                </div>
-            </div>
-        </div><!-- Account Popup Sec -->
-
+        <div id="account-popup"></div>
         <div id="header"></div>
-
         <section class="box-slider-search">
             <div class="container">
                 <h1 class="nocontent outline">--- Search form ---</h1>
@@ -344,7 +278,6 @@
                 </div>
             </div>
         </section>
-
         <section class="block remove-top">
             <div class="container">
                 <div class="row">
@@ -360,7 +293,6 @@
                 </div>
             </div>
         </section>
-
         <section class="block">
             <div style="background: url(img/call-to-action-bg.jpg) repeat scroll 50% 422.28px transparent; background-attachment: fixed;"
                 class="parallax scrolly-invisible  blackish"></div><!-- PARALLAX BACKGROUND IMAGE -->
@@ -377,9 +309,7 @@
                 </div>
             </div>
         </section>
-
         <div id="footer"></div>
-
     </div>
 
     <!-- Script -->
@@ -391,10 +321,8 @@
     <script type="text/javascript" src="js/scrolly.js"></script><!-- Parallax -->
     <script type="text/javascript" src="js/price-range.js"></script><!-- Parallax -->
     <script type="text/javascript" src="js/script.js"></script><!-- Script -->
-
     <script src="js/rs-plugin/js/jquery.themepunch.tools.min.js"></script>
     <script src="js/rs-plugin/js/jquery.themepunch.revolution.min.js"></script>
-
     <script type="text/javascript">
         $(document).ready(function () {
             "use strict";
@@ -455,7 +383,7 @@
                 fullScreenOffsetContainer: ""
             });
 
-   
+
             $(".carousel").owlCarousel({
                 autoplay: true,
                 autoplayTimeout: 3000,
@@ -496,42 +424,52 @@
 
         });
     </script>
-</body>
+    <script type="text/javascript" src="app/controllers/apartment/apartment_controller.js"></script>
+    <script type="text/javascript" src="app/views/apartment/apartment_view.js"></script>
+    <script type="text/javascript" src="app/views/shared/shared_view.js"></script>
+    <script type="text/javascript" src="app/views/user/user_view.js"></script>
+    <script type="text/javascript" src="app/controllers/user/user_controller.js"></script>
 
-</html>
+    <script type="text/javascript">
+        const sharedView = new NewSharedView();
+        
 
-<script type="text/javascript" src="app/controllers/apartment/apartment_controller.js"></script>
-<script type="text/javascript" src="app/views/apartment/apartment_view.js"></script>
-<script type="text/javascript" src="app/views/shared/shared_view.js"></script>
+        const headerEl = document.getElementById('header');
+        const footerEl = document.getElementById('footer');
 
+        sharedView.showNavbar(headerEl);
+        sharedView.showFooter(footerEl);
 
-<script type="text/javascript">
-     const sharedView = new NewSharedView();
-     const headerEl =  document.getElementById('header');
-     const footerEl =  document.getElementById('footer');
-     sharedView.showNavbar(headerEl);
-     sharedView.showFooter(footerEl);
+        const accountPopupEl = document.getElementById('account-popup');
 
-    const apController = new NewApartmentController();
-    const apView = new NewApartmentView();
-    const locationEl =  document.getElementById('location-list');
+        const userView = new NewUserView();
 
-    apController.findLocations().then(
-            function (response) {
-                if (response.status !== 200) {
-                    console.log('Looks like there was a problem. Status Code: ' +
-                        response.status);
-                    return;
+        userView.AccountPopupComponent(accountPopupEl);
+
+        const userController = new NewUserController();
+        userController.listeners();
+
+        const apController = new NewApartmentController();
+        const apView = new NewApartmentView();
+        
+        const locationEl = document.getElementById('location-list');
+
+        apController.findLocations().then(
+                function (response) {
+                    if (response.status !== 200) {
+                        console.log('Looks like there was a problem. Status Code: ' +
+                            response.status);
+                        return;
+                    }
+                    response.json().then(function (data) {
+                        apView.showLocations(locationEl, data);
+                        startCarousel();
+                    });
                 }
-                response.json().then(function (data) {
-                    apView.showLocations(locationEl, data);
-                    startCarousel();
-                });
-            }
-        )
-        .catch(function (err) {
-            console.log('Fetch Error :-S', err);
-        });
+            )
+            .catch(function (err) {
+                console.log('Fetch Error :-S', err);
+            });
 
         function startCarousel() {
             $(".carousel-prop").owlCarousel({
@@ -561,4 +499,7 @@
             });
 
         }
-</script>
+    </script>
+</body>
+
+</html>

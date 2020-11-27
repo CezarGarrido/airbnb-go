@@ -8,7 +8,6 @@ function NewSharedView() {
       element.innerHTML = footer();
     }
 
-
     return {
         showNavbar: showNavbar,
         showFooter: showFooter,
@@ -51,20 +50,19 @@ function NewSharedView() {
   const footer = () => `
   <footer class="light-footer">
   <section class="top-line">
-      <div style="background: url(img/footer.jpg) repeat scroll 50% 422.28px transparent;"
-          class="parallax scrolly-invisible no-parallax whitish"></div><!-- PARALLAX BACKGROUND IMAGE -->
+      <div style="background: url(&quot;img/footer.jpg;) 50% 0px repeat scroll transparent;" class="parallax scrolly-invisible no-parallax whitish"></div><!-- PARALLAX BACKGROUND IMAGE -->
       <div class="container">
           <div class="row">
               <div class="col-md-3 column">
                   <div class="links_widget widget">
                       <div class="heading1">
-                          <h2><span>Useful</span> links</h2>
+                          <h2><span><font style="vertical-align: inherit;"></font></span><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Links </font><span><font style="vertical-align: inherit;">úteis</font></span></font></h2>
                       </div><!-- heading -->
                       <ul>
-                          <li><a href="#" title=""><i class="fa fa-angle-right"></i> Home</a></li>
-                          <li><a href="#" title=""><i class="fa fa-angle-right"></i> About us</a></li>
-                          <li><a href="#" title=""><i class="fa fa-angle-right"></i> Services</a></li>
-                          <li><a href="#" title=""><i class="fa fa-angle-right"></i> Services</a></li>
+                          <li><a href="#" title=""><i class="fa fa-angle-right"></i><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> Casa</font></font></a></li>
+                          <li><a href="#" title=""><i class="fa fa-angle-right"></i><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> Sobre nós</font></font></a></li>
+                          <li><a href="#" title=""><i class="fa fa-angle-right"></i><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> Serviços</font></font></a></li>
+                          <li><a href="#" title=""><i class="fa fa-angle-right"></i><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> Serviços</font></font></a></li>
                       </ul>
                   </div>
               </div>
@@ -72,13 +70,13 @@ function NewSharedView() {
               <div class="col-md-3 column">
                   <div class="links_widget widget">
                       <div class="heading1">
-                          <h2><span>Useful</span> Places</h2>
+                          <h2><span><font style="vertical-align: inherit;"></font></span><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Lugares </font><span><font style="vertical-align: inherit;">Úteis</font></span></font></h2>
                       </div><!-- heading -->
                       <ul>
-                          <li><a href="#" title=""><i class="fa fa-angle-right"></i> Lorem ipsum </a></li>
-                          <li><a href="#" title=""><i class="fa fa-angle-right"></i> Closest ipsum </a></li>
-                          <li><a href="#" title=""><i class="fa fa-angle-right"></i> Lorem dolom </a></li>
-                          <li><a href="#" title=""><i class="fa fa-angle-right"></i> Positioned ipl</a></li>
+                          <li><a href="#" title=""><i class="fa fa-angle-right"></i><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> Lorem ipsum </font></font></a></li>
+                          <li><a href="#" title=""><i class="fa fa-angle-right"></i><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> Ipsum mais próximo </font></font></a></li>
+                          <li><a href="#" title=""><i class="fa fa-angle-right"></i><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> Lorem Dolom </font></font></a></li>
+                          <li><a href="#" title=""><i class="fa fa-angle-right"></i><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> Ipl posicionado</font></font></a></li>
                       </ul>
                   </div>
               </div>
@@ -86,11 +84,11 @@ function NewSharedView() {
               <div class="col-md-3 column">
                   <div class="subscribe_widget widget">
                       <div class="heading1">
-                          <h2><span>Subscribe</span> Us</h2>
+                          <h2><span><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Inscreva-</font></font></span><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> se</font></font></h2>
                       </div><!-- heading -->
-                      <p>Positioning the closest positioned for abs positioning</p>
+                      <p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Posicionando o mais próximo posicionado para posicionamento de abs</font></font></p>
                       <form>
-                          <label><input type="text" placeholder="TYPE YOUR EMAIL" /></label>
+                          <label><input type="text" placeholder="DIGITE SEU E-MAIL"></label>
                           <button type="submit" class="flat-btn"><i class="ti ti-email"></i></button>
                       </form>
                   </div>
@@ -101,17 +99,16 @@ function NewSharedView() {
   </section>
   <div class="bottom-line">
       <div class="container">
-          <span>Copyright All Right Reserved 2016 <a href="#" title="">KimaroTec</a></span>
+          <span><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Copyright Todos os direitos reservados 2020</font></font></span>
           <ul>
-              <li><a title="" href="#">HOME</a></li>
-              <li><a title="" href="#">ABOUT</a></li>
-              <li><a title="" href="#">VEHICULS</a></li>
-              <li><a title="" href="#">BLOG</a></li>
-              <li><a title="" href="#">CONTACT</a></li>
+              <li><a title="" href="#"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">INICIO</font></font></a></li>
+              <li><a title="" href="#"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">SOBRE</font></font></a></li>
+              <li><a title="" href="#"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">APARTAMENTOS</font></font></a></li>
+              <li><a title="" href="#"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">CONTATO</font></font></a></li>
           </ul>
       </div>
   </div>
-  <a href="#" class="scrollToTop"><i class="ti ti-arrow-circle-up"></i></a>
+  <a href="#" class="scrollToTop" style="display: inline;"><i class="ti ti-arrow-circle-up"></i></a>
 </footer>
   `;
   
