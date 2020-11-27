@@ -5,6 +5,6 @@ type ApartmentImage struct {
 	Base
 	ApartmentID int64  `json:"apartment_id"`
 	FileName    string `json:"file_name"`
-	FileSize    string `json:"file_size"`
+	FileSize    int64  `json:"file_size"`
 	URL         string `json:"url"`
 }

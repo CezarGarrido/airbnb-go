@@ -1,3 +1,5 @@
+github.com/CezarGarrido/multi v0.0.0-20201124202915-09c12ff613b5 h1:Bjpx9EvrX5KXdaeySh7iwavVy0Ut2VNDzk1V1VfCPcQ=
+github.com/CezarGarrido/multi v0.0.0-20201124202915-09c12ff613b5/go.mod h1:iZtyyKkry06TVpVvEQTF1jCm2c7B4wuFmlPVx+j5H7c=
 github.com/felixge/httpsnoop v1.0.1 h1:lvB5Jl89CsZtGIWuTcDM1E/vkVs49/Ml7JJe07l8SPQ=
 github.com/felixge/httpsnoop v1.0.1/go.mod h1:m8KPJKqk1gH5J9DgRY2ASl2lWCfGKXixSwevea8zH2U=
 github.com/google/uuid v1.1.2 h1:EVhdT+1Kseyi1/pUmXKaFxYsDNy9RQYkMWRH68J/W7Y=

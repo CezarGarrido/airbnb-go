@@ -27,6 +27,8 @@ CREATE TABLE public.apartments (
 	user_id int8 NOT NULL,
 	name varchar NOT NULL,
 	description text NOT NULL,
+	room_type varchar NOT NULL DEFAULT 'whole_place',
+	property_type varchar NOT NULL  DEFAULT 'house',
 	street varchar NOT NULL,
 	city varchar NOT NULL,
 	state varchar NOT NULL,
@@ -60,4 +62,17 @@ CREATE TABLE IF NOT EXISTS bookings (
 	CONSTRAINT fk_apartment_id FOREIGN KEY (apartment_id) REFERENCES apartments(id),
 	CONSTRAINT fk_customer_id FOREIGN KEY (customer_id) REFERENCES users(id),
 	CONSTRAINT fk_owner_id FOREIGN KEY (owner_id) REFERENCES users(id)
+);
+
+-- Bookings table
+CREATE TABLE IF NOT EXISTS apartment_images (
+	id bigserial NOT NULL,
+	uuid uuid NOT NULL,
+	apartment_id int8 NOT NULL,
+	file_name varchar NOT NULL,
+	file_size int8 NOT NULL,
+	url varchar NOT NULL,
+	created_at timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+	updated_at timestamp NULL,
+	CONSTRAINT fk_apartment_id FOREIGN KEY (apartment_id) REFERENCES apartments(id)
 );

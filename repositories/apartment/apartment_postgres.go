@@ -17,8 +17,44 @@ type posgresApartmentRepo struct {
 	tx *sql.Tx
 }
 
-func (pgApartmentRepo *posgresApartmentRepo) Create(ctx context.Context, apartment *entities.Apartment) (int64, error) {
-	return -1, nil
+func (pgApartmentRepo *posgresApartmentRepo) CreateWithTx(ctx context.Context, apartment *entities.Apartment) (int64, error) {
+	query := `INSERT INTO apartments
+	(uuid, user_id, "name", description, room_type, property_type, street, city, state, country, guests, bedrooms, beds, baths, price, status, created_at)
+	VALUES($1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11,$12,$13,$14,$15, $16, $17)
+	RETURNING id;`
+
+	stmt, err := pgApartmentRepo.tx.PrepareContext(ctx, query)
+	if err != nil {
+		return -1, err
+	}
+
+	defer stmt.Close()
+	var ID int64
+	err = stmt.QueryRowContext(ctx,
+		apartment.UUID,
+		apartment.UserID,
+		apartment.Name,
+		apartment.Description,
+		apartment.RoomType,
+		apartment.PropertyType,
+		apartment.Street,
+		apartment.City,
+		apartment.State,
+		apartment.Country,
+		apartment.Guests,
+		apartment.Bedrooms,
+		apartment.Beds,
+		apartment.Baths,
+		apartment.Price,
+		apartment.Status,
+		apartment.CreatedAt,
+	).Scan(&ID)
+
+	if err != nil {
+		return -1, err
+	}
+
+	return ID, nil
 }
 
 func (pgApartmentRepo *posgresApartmentRepo) Update(ctx context.Context, apartment *entities.Apartment) (*entities.Apartment, error) {

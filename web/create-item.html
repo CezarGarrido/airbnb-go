@@ -37,7 +37,7 @@
                 <div class="row">
                     <div class="col-md-12">
                         <div class="submit-content">
-                            <form id="new_post" name="new_post" method="post" class="vehicul-form" role="form">
+                            <form id="new_post" name="new_post" enctype="multipart/form-data" action="/api/v1/apartments/form" method="post" class="vehicul-form" role="form">
                                 <div class="control-group">
                                     <div class="group-title">Novo Anúncio</div>
                                     <div class="group-container row">
@@ -65,7 +65,6 @@
                                             </div>
                                         </div>
 
-                                        <div>
 
                                             <div class="col-md-4">
                                                 <div class="form-group s-prop-status">
@@ -73,9 +72,9 @@
                                                     <div class="dropdown label-select">
                                                         <div class="label-select">
                                                             <select class="form-control" name="room_type">
-                                                                <option>O lugar todo </option>
-                                                                <option>Quarto Inteiro </option>
-                                                                <option>Quarto Compartilhado</option>
+                                                                <option value="whole_place">O lugar todo </option>
+                                                                <optio value="whole_room">Quarto Inteiro </optio>
+                                                                <option value="shared_room">Quarto Compartilhado</option>
                                                             </select>
                                                         </div>
                                                     </div>
@@ -87,7 +86,7 @@
                                                     <label>Hóspedes</label>
                                                     <div class="dropdown label-select">
                                                         <div class="label-select">
-                                                            <select class="form-control" name="s_model">
+                                                            <select class="form-control" name="guests">
                                                                 <option value="4">para 4 hóspedes </option>
                                                                 <option value="1">para 1 hóspedes </option>
                                                                 <option value="2">para 2 hóspedes </option>
@@ -170,7 +169,6 @@
                                                 </div>
                                             </div>
 
-                                        </div>
                                     </div>
                                 </div>
                                 <div class="control-group">
@@ -182,11 +180,15 @@
                                                     <div class="moxie-shim moxie-shim-html5">
                                                         <label for="input-upload" class="btn flat-btn btn-lg">Selecionar
                                                             Imagens</label>
-                                                        <input id="input-upload" type="file" multiple=""
-                                                            accept="image/jpeg,image/gif,image/png">
+                                                        <input id="input-upload" type="file" name="files"
+                                                            multiple="multiple" accept="image/jpeg,image/gif,image/png">
                                                     </div>
-                                                    <p>At least 1 image is required for a valid submission. The featured
-                                                        image will be used to dispaly on vehicul listing page.</p>
+                                                    <p>É necessária pelo menos 1 imagem para um envio válido. A imagem
+                                                        em destaque será usada para exibir na página de lista de locais.
+                                                    </p>
+                                                    <div id="list-files">
+
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
@@ -195,7 +197,7 @@
                                 <div class="submit row " style="clear: both; margin-top: 25px;margin-bottom: 10px;">
                                     <div class="col-md-12">
                                         <input type="submit" class="btn btn-lg flat-btn float-right pull-right"
-                                            id="vehicul_submit" value="Salvar">
+                                            id="btn_submit" value="Salvar">
                                         <label style="margin-top: 15px; margin-left: 10px;"></label>
                                     </div>
                                 </div>
@@ -226,105 +228,123 @@
 
     <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/js/select2.min.js"></script>
 
+    <script>
+        function handleFileSelect(evt) {
+            var files = evt.target.files; 
+            var output = [];
+            for (var i = 0, f; f = files[i]; i++) {
+                output.push('<li><strong>', escape(f.name), '</strong> (', f.type || 'n/a', ') - ',
+                    f.size, ' bytes, last modified: ',
+                    f.lastModifiedDate ? f.lastModifiedDate.toLocaleDateString() : 'n/a',
+                    '</li>');
+            }
+            document.getElementById('list-files').innerHTML = '<ul>' + output.join('') + '</ul>';
+        }
+        const fileSelector = document.getElementById('input-upload');
+        fileSelector.addEventListener('change', (event) => {
+            handleFileSelect(event);
+        });
+    </script>
+
     <script type="text/javascript">
         $(document).ready(function () {
-            "use strict";
-            jQuery('.tp-banner').show().revolution({
-                dottedOverlay: "none",
-                delay: 16000,
-                startwidth: 1170,
-                startheight: 700,
-                hideThumbs: 200,
-                thumbWidth: 100,
-                thumbHeight: 50,
-                thumbAmount: 5,
-                navigationType: "bullet",
-                navigationArrows: "solo",
-                navigationStyle: "preview1",
-                touchenabled: "on",
-                onHoverStop: "on",
-                swipe_velocity: 0.7,
-                swipe_min_touches: 1,
-                swipe_max_touches: 1,
-                drag_block_vertical: false,
-                parallax: "mouse",
-                parallaxBgFreeze: "on",
-                parallaxLevels: [7, 4, 3, 2, 5, 4, 3, 2, 1, 0],
-                keyboardNavigation: "off",
-                navigationHAlign: "center",
-                navigationVAlign: "bottom",
-                navigationHOffset: 0,
-                navigationVOffset: 20,
-                soloArrowLeftHalign: "left",
-                soloArrowLeftValign: "center",
-                soloArrowLeftHOffset: 20,
-                soloArrowLeftVOffset: 0,
-                soloArrowRightHalign: "right",
-                soloArrowRightValign: "center",
-                soloArrowRightHOffset: 20,
-                soloArrowRightVOffset: 0,
-                shadow: 0,
-                fullWidth: "on",
-                fullScreen: "off",
-                spinner: "spinner4",
-                stopLoop: "off",
-                stopAfterLoops: -1,
-                stopAtSlide: -1,
-                shuffle: "off",
-                autoHeight: "off",
-                forceFullWidth: "off",
-                hideThumbsOnMobile: "off",
-                hideNavDelayOnMobile: 1500,
-                hideBulletsOnMobile: "off",
-                hideArrowsOnMobile: "off",
-                hideThumbsUnderResolution: 0,
-                hideSliderAtLimit: 0,
-                hideCaptionAtLimit: 0,
-                hideAllCaptionAtLilmit: 0,
-                startWithSlide: 0,
-                videoJsPath: "rs-plugin/videojs/",
-                fullScreenOffsetContainer: ""
-            });
+        "use strict";
+        jQuery('.tp-banner').show().revolution({
+        dottedOverlay: "none",
+        delay: 16000,
+        startwidth: 1170,
+        startheight: 700,
+        hideThumbs: 200,
+        thumbWidth: 100,
+        thumbHeight: 50,
+        thumbAmount: 5,
+        navigationType: "bullet",
+        navigationArrows: "solo",
+        navigationStyle: "preview1",
+        touchenabled: "on",
+        onHoverStop: "on",
+        swipe_velocity: 0.7,
+        swipe_min_touches: 1,
+        swipe_max_touches: 1,
+        drag_block_vertical: false,
+        parallax: "mouse",
+        parallaxBgFreeze: "on",
+        parallaxLevels: [7, 4, 3, 2, 5, 4, 3, 2, 1, 0],
+        keyboardNavigation: "off",
+        navigationHAlign: "center",
+        navigationVAlign: "bottom",
+        navigationHOffset: 0,
+        navigationVOffset: 20,
+        soloArrowLeftHalign: "left",
+        soloArrowLeftValign: "center",
+        soloArrowLeftHOffset: 20,
+        soloArrowLeftVOffset: 0,
+        soloArrowRightHalign: "right",
+        soloArrowRightValign: "center",
+        soloArrowRightHOffset: 20,
+        soloArrowRightVOffset: 0,
+        shadow: 0,
+        fullWidth: "on",
+        fullScreen: "off",
+        spinner: "spinner4",
+        stopLoop: "off",
+        stopAfterLoops: -1,
+        stopAtSlide: -1,
+        shuffle: "off",
+        autoHeight: "off",
+        forceFullWidth: "off",
+        hideThumbsOnMobile: "off",
+        hideNavDelayOnMobile: 1500,
+        hideBulletsOnMobile: "off",
+        hideArrowsOnMobile: "off",
+        hideThumbsUnderResolution: 0,
+        hideSliderAtLimit: 0,
+        hideCaptionAtLimit: 0,
+        hideAllCaptionAtLilmit: 0,
+        startWithSlide: 0,
+        videoJsPath: "rs-plugin/videojs/",
+        fullScreenOffsetContainer: ""
+        });
 
-            $("#select-amenities").select2();
+        $("#select-amenities").select2();
 
-            $(".carousel").owlCarousel({
-                autoplay: true,
-                autoplayTimeout: 3000,
-                smartSpeed: 2000,
-                loop: false,
-                dots: false,
-                nav: true,
-                margin: 0,
-                items: 3
-            });
+        $(".carousel").owlCarousel({
+        autoplay: true,
+        autoplayTimeout: 3000,
+        smartSpeed: 2000,
+        loop: false,
+        dots: false,
+        nav: true,
+        margin: 0,
+        items: 3
+        });
 
-            $(".carousel-client").owlCarousel({
-                autoplay: true,
-                autoplayTimeout: 3000,
-                smartSpeed: 2000,
-                loop: false,
-                dots: false,
-                nav: true,
-                margin: 30,
-                items: 5,
-                responsiveClass: true,
-                responsive: {
-                    0: {
-                        items: 1,
-                        nav: true
-                    },
-                    600: {
-                        items: 3,
-                        nav: true
-                    },
-                    1000: {
-                        items: 5,
-                        nav: true,
-                        loop: false
-                    }
-                }
-            });
+        $(".carousel-client").owlCarousel({
+        autoplay: true,
+        autoplayTimeout: 3000,
+        smartSpeed: 2000,
+        loop: false,
+        dots: false,
+        nav: true,
+        margin: 30,
+        items: 5,
+        responsiveClass: true,
+        responsive: {
+        0: {
+        items: 1,
+        nav: true
+        },
+        600: {
+        items: 3,
+        nav: true
+        },
+        1000: {
+        items: 5,
+        nav: true,
+        loop: false
+        }
+        }
+        });
 
         });
     </script>

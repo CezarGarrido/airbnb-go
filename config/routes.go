@@ -27,6 +27,7 @@ func apartmentRoutes(router *mux.Router, db *driver.DB) {
 	apartment := handlerHttp.NewApartment(db)
 
 	router.HandleFunc("/apartments", apartment.FindAll).Methods("GET")
+	router.HandleFunc("/apartments/form", apartment.CreateFormData).Methods("POST")
 }
 
 func userRoutes(router *mux.Router, db *driver.DB) {
