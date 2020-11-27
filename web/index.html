@@ -18,16 +18,18 @@
 
     <!-- REVOLUTION STYLE SHEETS -->
     <link rel="stylesheet" type="text/css" href="js/rs-plugin/css/settings.css">
-
+    <style>
+    </style>
 </head>
 
 <body>
 
     <!-- /.preloader -->
     <div id="preloader"></div>
-    <div class="theme-layout">
+    <div class="theme-layout" id="theme-layout">
+        
         <div id="account-popup"></div>
-        <div id="header"></div>
+
         <section class="box-slider-search">
             <div class="container">
                 <h1 class="nocontent outline">--- Search form ---</h1>
@@ -45,7 +47,7 @@
                                             <div class="form-group col-md-12">
                                                 <div class="label-select">
                                                     <select class="form-control" name="s_location">
-                                                        <option>Any Manufacturer</option>
+                                                        <option>Localização</option>
                                                         <option>Audi</option>
                                                         <option>Mercedes-Benz</option>
                                                         <option>BMW</option>
@@ -61,7 +63,7 @@
                                             <div class="form-group col-md-12">
                                                 <div class="label-select">
                                                     <select class="form-control" name="anymodule">
-                                                        <option>Any Model </option>
+                                                        <option>Data de Entrada </option>
                                                         <option value="1">R8</option>
                                                         <option value="2">S500</option>
                                                         <option value="3">540i</option>
@@ -77,7 +79,7 @@
                                             <div class="form-group col-md-12">
                                                 <div class="label-select">
                                                     <select class="form-control" name="s_location">
-                                                        <option>Any locations</option>
+                                                        <option>Data de Saída</option>
                                                         <option>Central New York</option>
                                                         <option>GreenVille</option>
                                                         <option>Long Island</option>
@@ -90,7 +92,7 @@
                                             <div class="form-group col-md-12">
                                                 <div class="label-select">
                                                     <select class="form-control" name="s_statu">
-                                                        <option>Any Status </option>
+                                                        <option>Hóspedes </option>
                                                         <option value="damaged">Damaged</option>
                                                         <option value="new">New</option>
                                                         <option value="semi-new">Semi-New</option>
@@ -100,7 +102,7 @@
                                             </div>
 
                                             <div class="form-group col-md-12">
-                                                <span class="gprice-label">Price Range</span>
+                                                <span class="gprice-label">Preço</span>
                                                 <input type="text" class="span2" value="" data-slider-min="0"
                                                     data-slider-max="60000" data-slider-step="5"
                                                     data-slider-value="[0,60000]" id="price-range">
@@ -424,6 +426,7 @@
 
         });
     </script>
+
     <script type="text/javascript" src="app/controllers/apartment/apartment_controller.js"></script>
     <script type="text/javascript" src="app/views/apartment/apartment_view.js"></script>
     <script type="text/javascript" src="app/views/shared/shared_view.js"></script>
@@ -432,12 +435,12 @@
 
     <script type="text/javascript">
         const sharedView = new NewSharedView();
-        
 
-        const headerEl = document.getElementById('header');
+        const headerEl = document.getElementById('theme-layout');
         const footerEl = document.getElementById('footer');
 
-        sharedView.showNavbar(headerEl);
+        headerEl.insertAdjacentHTML('afterbegin',sharedView.getNavbarHTML());
+
         sharedView.showFooter(footerEl);
 
         const accountPopupEl = document.getElementById('account-popup');
@@ -451,7 +454,7 @@
 
         const apController = new NewApartmentController();
         const apView = new NewApartmentView();
-        
+
         const locationEl = document.getElementById('location-list');
 
         apController.findLocations().then(

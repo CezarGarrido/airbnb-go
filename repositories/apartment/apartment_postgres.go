@@ -30,7 +30,7 @@ func (pgApartmentRepo *posgresApartmentRepo) Delete(ctx context.Context, apartme
 }
 
 func (pgApartmentRepo *posgresApartmentRepo) FindAll(ctx context.Context) ([]*entities.Apartment, error) {
-	query := "SELECT id, user_id, name, description, street, city, state, country, guests, bedrooms, beds, baths, likes, price, status, created_at, updated_at FROM apartments;"
+	query := "SELECT id, uuid, user_id, name, description, street, city, state, country, guests, bedrooms, beds, baths, likes, price, status, created_at, updated_at FROM apartments;"
 	return pgApartmentRepo.fetch(ctx, query)
 }
 
@@ -46,6 +46,7 @@ func (pgApartmentRepo *posgresApartmentRepo) fetch(ctx context.Context, query st
 		apartment := new(entities.Apartment)
 		err := rows.Scan(
 			&apartment.ID,
+			&apartment.UUID,
 			&apartment.UserID,
 			&apartment.Name,
 			&apartment.Description,

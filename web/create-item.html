@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Airbnb </title>
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css" /><!-- Bootstrap -->
+    <link rel="stylesheet" href="fonts/font-awesome/css/font-awesome.min.css" type="text/css" /><!-- Icons -->
+    <link rel="stylesheet" href="fonts/themify-icons/themify-icons.css" type="text/css" /><!-- Icons -->
+    <link rel="stylesheet" href="css/owl.carousel.css" type="text/css" /><!-- Owl Carousal-->
+    <link rel="stylesheet" href="css/price-range.css" type="text/css" /><!-- Owl Carousal -->
+
+    <link rel="stylesheet" href="css/style.css" type="text/css" /><!-- Style -->
+    <link rel="stylesheet" href="css/responsive.css" type="text/css" /><!-- Responsive -->
+    <link rel="stylesheet" href="css/colors.css" type="text/css" /><!-- color -->
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/css/select2.min.css" rel="stylesheet" />
+    <!-- REVOLUTION STYLE SHEETS -->
+    <link rel="stylesheet" type="text/css" href="js/rs-plugin/css/settings.css">
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/css/bootstrap-select.css" />
+    <style>
+    </style>
+</head>
+
+<body>
+
+    <!-- /.preloader -->
+    <div id="preloader"></div>
+    <div class="theme-layout" id="theme-layout">
+
+        <div id="account-popup"></div>
+
+        <section class="block-">
+            <div class="container agnet-prop">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="submit-content">
+                            <form id="new_post" name="new_post" method="post" class="vehicul-form" role="form">
+                                <div class="control-group">
+                                    <div class="group-title">Novo Anúncio</div>
+                                    <div class="group-container row">
+
+                                        <div class="col-md-8">
+                                            <div class="form-group s-prop-title">
+                                                <label for="title">Titulo&nbsp;&#42;</label>
+                                                <input type="text" id="title" class="form-control" value="" name="title"
+                                                    required="">
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-4">
+                                            <div class="form-group s-prop-area">
+                                                <label for="area">Preço/Noite </label>
+                                                <input type="text" id="area" class="form-control" value="" name="price">
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-12">
+                                            <div class="form-group s-prop-desc">
+                                                <label for="textarea">Descrição&nbsp;&#42;</label>
+                                                <textarea id="textarea" name="description" rows="5" required=""
+                                                    style="width: 100%;"></textarea>
+                                            </div>
+                                        </div>
+
+                                        <div>
+
+                                            <div class="col-md-4">
+                                                <div class="form-group s-prop-status">
+                                                    <label>Tipo</label>
+                                                    <div class="dropdown label-select">
+                                                        <div class="label-select">
+                                                            <select class="form-control" name="room_type">
+                                                                <option>O lugar todo </option>
+                                                                <option>Quarto Inteiro </option>
+                                                                <option>Quarto Compartilhado</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-md-4">
+                                                <div class="form-group s-prop-status">
+                                                    <label>Hóspedes</label>
+                                                    <div class="dropdown label-select">
+                                                        <div class="label-select">
+                                                            <select class="form-control" name="s_model">
+                                                                <option value="4">para 4 hóspedes </option>
+                                                                <option value="1">para 1 hóspedes </option>
+                                                                <option value="2">para 2 hóspedes </option>
+                                                                <option value="3">para 3 hóspedes </option>
+                                                                <option value="4">para 4 hóspedes </option>
+                                                                <option value="5">para 5 hóspedes </option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="form-group s-prop-type">
+                                                    <label>Tipo de propriedade </label>
+                                                    <div class="dropdown label-select">
+                                                        <select class="form-control" name="property_type">
+                                                            <option value="0" disabled="">Selecione uma opção</option>
+                                                            <option value="apartments">Apartamento</option>
+                                                            <option value="houses">Casa</option>
+                                                            <option value="secondary_units">Unidade secundária</option>
+                                                            <option value="unique_homes">Acomodação única</option>
+                                                            <option value="bnb">Pousada</option>
+                                                            <option value="boutique_hotels_and_more">Hotel boutique
+                                                            </option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="form-group s-prop-type">
+                                                    <label>Número de Quartos </label>
+                                                    <div class="dropdown label-select">
+                                                        <select class="form-control" name="bedrooms">
+                                                            <option>Any </option>
+                                                            <option value="diesel">Diesel</option>
+                                                            <option value="electronic">Electric</option>
+                                                            <option value="gas">Gas (LPG, Natural Gas)</option>
+                                                            <option value="hydrogen">Hydrogen</option>
+                                                            <option value="other">Essence</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="form-group beds">
+                                                    <label for="car_years">Número de camas </label>
+                                                    <input type="number" id="beds" name="beds" class="form-control"
+                                                        value="" min="0">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="form-group bathrooms">
+                                                    <label for="car_years">Número de banheiros</label>
+                                                    <input type="number" id="bathrooms" name="bathrooms"
+                                                        class="form-control" value="" min="0">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+
+                                                    <select id="select-amenities" multiple>
+                                                        <option value="basic">Básico
+                                                            Toalhas, lençóis, sabonete, papel higiênico e travesseiros
+                                                        </option>
+                                                        <option value="wifi">Wi-Fi</option>
+                                                        <option value="tv">TV</option>
+                                                        <option value="aquecimentos">Aquecimento</option>
+                                                        <option value="ar_condicionado">Ar condicionado</option>
+                                                        <option value="ferro_de_passar">Ferro de passar</option>
+                                                        <option value="xampu">Xampu</option>
+                                                        <option value="secador_cabelo">Secador de cabelo</option>
+                                                        <option value="cafes">Café da manhã, café, chá</option>
+                                                        <option value="area_de_trabalho"> Mesa/área de trabalho</option>
+                                                        <option value="lareira">Lareira</option>
+                                                        <option value="closet_gavetas">Closet/gavetas</option>
+                                                        <option value="entrada_privada">Entrada privada</option>
+                                                        <option value="acessibilidade">Acessibilidade</option>
+                                                    </select>
+
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="control-group">
+                                    <div class="group-title">Apartment Images</div>
+                                    <div class="group-container row">
+                                        <div class="col-md-12">
+                                            <div id="upload-container">
+                                                <div id="aaiu-upload-container">
+                                                    <div class="moxie-shim moxie-shim-html5">
+                                                        <label for="input-upload" class="btn flat-btn btn-lg">Selecionar
+                                                            Imagens</label>
+                                                        <input id="input-upload" type="file" multiple=""
+                                                            accept="image/jpeg,image/gif,image/png">
+                                                    </div>
+                                                    <p>At least 1 image is required for a valid submission. The featured
+                                                        image will be used to dispaly on vehicul listing page.</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="submit row " style="clear: both; margin-top: 25px;margin-bottom: 10px;">
+                                    <div class="col-md-12">
+                                        <input type="submit" class="btn btn-lg flat-btn float-right pull-right"
+                                            id="vehicul_submit" value="Salvar">
+                                        <label style="margin-top: 15px; margin-left: 10px;"></label>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div id="footer"></div>
+    </div>
+
+    <!-- Script -->
+
+
+
+    <script type="text/javascript" src="js/modernizr.js"></script><!-- Modernizer -->
+    <script type="text/javascript" src="js/jquery-1.10.2.min.js"></script><!-- Jquery -->
+    <script type="text/javascript" src="js/bootstrap.min.js"></script><!-- Bootstrap -->
+    <script type="text/javascript" src="js/owl.carousel.min.js"></script><!-- Owl Carousal -->
+    <script type="text/javascript" src="js/html5lightbox.js"></script><!-- HTML -->
+    <script type="text/javascript" src="js/scrolly.js"></script><!-- Parallax -->
+    <script type="text/javascript" src="js/price-range.js"></script><!-- Parallax -->
+    <script type="text/javascript" src="js/script.js"></script><!-- Script -->
+    <script src="js/rs-plugin/js/jquery.themepunch.tools.min.js"></script>
+    <script src="js/rs-plugin/js/jquery.themepunch.revolution.min.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/js/select2.min.js"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            "use strict";
+            jQuery('.tp-banner').show().revolution({
+                dottedOverlay: "none",
+                delay: 16000,
+                startwidth: 1170,
+                startheight: 700,
+                hideThumbs: 200,
+                thumbWidth: 100,
+                thumbHeight: 50,
+                thumbAmount: 5,
+                navigationType: "bullet",
+                navigationArrows: "solo",
+                navigationStyle: "preview1",
+                touchenabled: "on",
+                onHoverStop: "on",
+                swipe_velocity: 0.7,
+                swipe_min_touches: 1,
+                swipe_max_touches: 1,
+                drag_block_vertical: false,
+                parallax: "mouse",
+                parallaxBgFreeze: "on",
+                parallaxLevels: [7, 4, 3, 2, 5, 4, 3, 2, 1, 0],
+                keyboardNavigation: "off",
+                navigationHAlign: "center",
+                navigationVAlign: "bottom",
+                navigationHOffset: 0,
+                navigationVOffset: 20,
+                soloArrowLeftHalign: "left",
+                soloArrowLeftValign: "center",
+                soloArrowLeftHOffset: 20,
+                soloArrowLeftVOffset: 0,
+                soloArrowRightHalign: "right",
+                soloArrowRightValign: "center",
+                soloArrowRightHOffset: 20,
+                soloArrowRightVOffset: 0,
+                shadow: 0,
+                fullWidth: "on",
+                fullScreen: "off",
+                spinner: "spinner4",
+                stopLoop: "off",
+                stopAfterLoops: -1,
+                stopAtSlide: -1,
+                shuffle: "off",
+                autoHeight: "off",
+                forceFullWidth: "off",
+                hideThumbsOnMobile: "off",
+                hideNavDelayOnMobile: 1500,
+                hideBulletsOnMobile: "off",
+                hideArrowsOnMobile: "off",
+                hideThumbsUnderResolution: 0,
+                hideSliderAtLimit: 0,
+                hideCaptionAtLimit: 0,
+                hideAllCaptionAtLilmit: 0,
+                startWithSlide: 0,
+                videoJsPath: "rs-plugin/videojs/",
+                fullScreenOffsetContainer: ""
+            });
+
+            $("#select-amenities").select2();
+
+            $(".carousel").owlCarousel({
+                autoplay: true,
+                autoplayTimeout: 3000,
+                smartSpeed: 2000,
+                loop: false,
+                dots: false,
+                nav: true,
+                margin: 0,
+                items: 3
+            });
+
+            $(".carousel-client").owlCarousel({
+                autoplay: true,
+                autoplayTimeout: 3000,
+                smartSpeed: 2000,
+                loop: false,
+                dots: false,
+                nav: true,
+                margin: 30,
+                items: 5,
+                responsiveClass: true,
+                responsive: {
+                    0: {
+                        items: 1,
+                        nav: true
+                    },
+                    600: {
+                        items: 3,
+                        nav: true
+                    },
+                    1000: {
+                        items: 5,
+                        nav: true,
+                        loop: false
+                    }
+                }
+            });
+
+        });
+    </script>
+
+    <script type="text/javascript" src="app/controllers/apartment/apartment_controller.js"></script>
+    <script type="text/javascript" src="app/views/apartment/apartment_view.js"></script>
+    <script type="text/javascript" src="app/views/shared/shared_view.js"></script>
+    <script type="text/javascript" src="app/views/user/user_view.js"></script>
+    <script type="text/javascript" src="app/controllers/user/user_controller.js"></script>
+
+    <script type="text/javascript">
+        const sharedView = new NewSharedView();
+        const headerEl = document.getElementById('theme-layout');
+        const footerEl = document.getElementById('footer');
+        headerEl.insertAdjacentHTML('afterbegin', sharedView.getNavbarHTML());
+        sharedView.showFooter(footerEl);
+        const accountPopupEl = document.getElementById('account-popup');
+        const userView = new NewUserView();
+        userView.AccountPopupComponent(accountPopupEl);
+        const userController = new NewUserController();
+        userController.listeners();
+    </script>
+</body>
+
+</html>

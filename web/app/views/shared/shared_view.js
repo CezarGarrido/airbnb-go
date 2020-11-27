@@ -8,9 +8,14 @@ function NewSharedView() {
       element.innerHTML = footer();
     }
 
+    function getNavbarHTML() {
+        return navbar();
+    }
+
     return {
         showNavbar: showNavbar,
         showFooter: showFooter,
+        getNavbarHTML: getNavbarHTML
     };
   }
   
@@ -37,7 +42,7 @@ function NewSharedView() {
                       <a href="#index.html" title="">HOME</a>
                   </li>
                   <li class="menu-item-has-children">
-                      <a href="#vehiculs3.html" title="">Locations</a>
+                      <a href="#vehiculs3.html" title="">LOCATIONS</a>
                   </li>
               </ul>
           </nav>

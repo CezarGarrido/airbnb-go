@@ -2,38 +2,51 @@
 -- Users table
 CREATE TABLE IF NOT EXISTS users (
 	id bigserial NOT NULL,
+	uuid uuid NOT NULL,
 	first_name varchar NOT NULL,
 	last_name varchar NOT NULL,
 	email varchar NOT NULL,
+	phone varchar,
 	password varchar NOT NULL,
 	created_at TIMESTAMP DEFAULT current_timestamp,
     updated_at TIMESTAMP,
-	CONSTRAINT pk_user_id PRIMARY KEY (id)
+	CONSTRAINT pk_user_id PRIMARY KEY (id),
+	UNIQUE (email)
 );
 
--- Apartments table
-CREATE TABLE IF NOT EXISTS apartments (
+
+-- public.apartments definition
+
+-- Drop table
+
+-- DROP TABLE public.apartments;
+
+CREATE TABLE public.apartments (
 	id bigserial NOT NULL,
-    user_id int8 NOT NULL,
+	uuid uuid NOT NULL,
+	user_id int8 NOT NULL,
 	name varchar NOT NULL,
 	description text NOT NULL,
 	street varchar NOT NULL,
 	city varchar NOT NULL,
 	state varchar NOT NULL,
 	country varchar NOT NULL,
-	guests integer NOT NULL DEFAULT 0,
-	bedrooms integer NOT NULL DEFAULT 0,
-	beds integer NOT NULL DEFAULT 0,
-	baths integer NOT NULL DEFAULT 0,
-	likes integer NOT NULL DEFAULT 0,
+	guests int4 NOT NULL DEFAULT 0,
+	bedrooms int4 NOT NULL DEFAULT 0,
+	beds int4 NOT NULL DEFAULT 0,
+	baths int4 NOT NULL DEFAULT 0,
+	likes int4 NOT NULL DEFAULT 0,
 	price numeric NOT NULL,
-	status varchar(20) NOT NULL DEFAULT 'available',
-    created_at TIMESTAMP NOT NULL DEFAULT current_timestamp,
-    updated_at TIMESTAMP,
-    FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE,
+	status varchar(20) NOT NULL DEFAULT 'available'::character varying,
+	created_at timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+	updated_at timestamp NULL,
 	CONSTRAINT pk_apartment_id PRIMARY KEY (id)
 );
 
+
+-- public.apartments foreign keys
+
+ALTER TABLE public.apartments ADD CONSTRAINT apartments_user_id_fkey FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE;
 
 -- Bookings table
 CREATE TABLE IF NOT EXISTS bookings (
