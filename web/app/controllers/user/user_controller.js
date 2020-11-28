@@ -78,8 +78,8 @@ function NewUserController() {
     }
 
     return {
-        createUser: createUser,
-        parseUserForm: parseUserForm,
-        listeners: listeners,
+        createUser,
+        parseUserForm,
+        listeners,
     };
 }

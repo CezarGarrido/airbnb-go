@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Airbnb </title>
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css" /><!-- Bootstrap -->
+    <link rel="stylesheet" href="fonts/font-awesome/css/font-awesome.min.css" type="text/css" /><!-- Icons -->
+    <link rel="stylesheet" href="fonts/themify-icons/themify-icons.css" type="text/css" /><!-- Icons -->
+    <link rel="stylesheet" href="css/owl.carousel.css" type="text/css" /><!-- Owl Carousal -->
+    <link rel="stylesheet" href="css/price-range.css" type="text/css" /><!-- Owl Carousal -->
+    <link rel="stylesheet" href="css/lightslider.min.css">
+
+    <link rel="stylesheet" href="css/style.css" type="text/css" /><!-- Style -->
+    <link rel="stylesheet" href="css/responsive.css" type="text/css" /><!-- Responsive -->
+    <link rel="stylesheet" href="css/colors.css" type="text/css" /><!-- color -->
+
+    <!-- REVOLUTION STYLE SHEETS -->
+    <link rel="stylesheet" type="text/css" href="js/rs-plugin/css/settings.css">
+
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css">
+</head>
+
+<body>
+    <!-- /.preloader -->
+    <div id="preloader"></div>
+    <div class="theme-layout" id="theme-layout">
+        <div id="account-popup"></div>
+        <div id="apartment-location-header"></div>
+        <section class="block">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="row">
+                            <div class="col-md-8 column">
+                                <div class="single-post-sec" id="apartment-location">
+                                </div><!-- Blog POst Sec -->
+                            </div>
+                            <aside class="col-md-4 column">
+
+                                <div class="search_widget widget">
+                                    <div style="margin-bottom: 0px !important;" class="heading3">
+                                        <h3>R$259 /noite</h3>
+                                    </div>
+                                    <div class="search-form">
+                                        <form action="vehiculs.html" method="get" class="form-inline">
+                                            <div class="search-form-content">
+                                                <div class="search-form-field">
+                                                    <div class="form-group col-md-12">
+                                                        <div class="label-select">
+                                                            <input type="text" class="form-control" name="checkin">
+                                                            </input>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group col-md-12">
+                                                        <div class="label-select">
+                                                            <input type="text" class="form-control" name="checkout">
+                                                            </input>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="form-group col-md-12">
+                                                        <div class="label-select">
+                                                            <select class="form-control" name="s_statu">
+                                                                <option>Hóspedes </option>
+                                                                <option value="1">1 hóspede</option>
+                                                                <option value="2">2 hóspede</option>
+                                                                <option value="3">3 hóspede</option>
+                                                                <option value="4">4 hóspede</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="search-form-submit">
+                                                <button type="submit" class="btn btn-block btn-lg flat-btn">Conferir
+                                                    Disponibilidade</button>
+                                            </div>
+                                        </form>
+                                    </div><!-- Services Sec -->
+                                </div><!-- Category Widget -->
+                                <div class="agent_bg_widget widget">
+                                    <div class="agent_widget">
+                                        <div class="agent_pic">
+                                            <a href="agent.html" title="">
+                                                <img src="img/demo/man1.jpg" alt="" />
+                                                <h3 class="nocontent outline">--- document outline needed 3 ---</h3>
+                                                <h4>Smith forbes</h4>
+                                            </a>
+                                        </div>
+                                        <div class="agent_social">
+                                            <a href="#" title=""><i class="fa fa-facebook"></i></a>
+                                            <a href="#" title=""><i class="fa fa-google-plus"></i></a>
+                                            <a href="#" title=""><i class="fa fa-twitter"></i></a>
+                                            <a href="#" title=""><i class="fa fa-tumblr"></i></a>
+                                        </div>
+                                        <span>
+                                            <i class="fa fa-phone"> </i> +1 9090909090
+                                        </span>
+                                        <span>
+                                            <i class="fa fa-envelope"> </i> agent@company.com
+                                        </span>
+                                        <a href="agent.html" title="" class="btn contact-agent">Find more</a>
+                                    </div>
+                                </div><!-- Follow Widget -->
+
+                            </aside>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div id="footer"></div>
+
+    </div>
+
+    <!-- Script -->
+    <script type="text/javascript" src="js/modernizr.js"></script><!-- Modernizer -->
+    <script type="text/javascript" src="js/jquery-1.10.2.min.js"></script><!-- Jquery -->
+    <script type="text/javascript" src="js/bootstrap.min.js"></script><!-- Bootstrap -->
+    <script type="text/javascript" src="js/owl.carousel.min.js"></script><!-- Owl Carousal -->
+    <script type="text/javascript" src="js/html5lightbox.js"></script><!-- HTML -->
+    <script type="text/javascript" src="js/scrolly.js"></script><!-- Parallax -->
+    <script type="text/javascript" src="js/price-range.js"></script><!-- Parallax -->
+    <script type="text/javascript" src="js/script.js"></script><!-- Script -->
+    <script type="text/javascript" src="js/lightslider.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            "use strict";
+            $(".related-vehiculs-items").owlCarousel({
+                autoplay: true,
+                autoplayTimeout: 3000,
+                smartSpeed: 2000,
+                loop: true,
+                dots: true,
+                nav: false,
+                marging: 30,
+                items: 4,
+                responsiveClass: true,
+                responsive: {
+                    0: {
+                        items: 1,
+                        nav: false
+                    },
+                    600: {
+                        items: 2,
+                        nav: false
+                    },
+                    1000: {
+                        items: 3,
+                        nav: true,
+                        loop: false
+                    }
+                }
+            });
+        });
+    </script>
+    <script type="text/javascript" src="app/views/apartment/apartment_view.js"></script>
+    <script type="text/javascript" src="app/views/shared/shared_view.js"></script>
+    <script type="text/javascript" src="app/views/user/user_view.js"></script>
+    <script type="text/javascript" src="app/controllers/user/user_controller.js"></script>
+
+    <script type="text/javascript" src="app/controllers/apartment/apartment_controller.js"></script>
+
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js">
+    </script>
+
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
+
+
+    <script type="text/javascript">
+        const sharedView = new NewSharedView();
+        const headerEl = document.getElementById('theme-layout');
+        const footerEl = document.getElementById('footer');
+        headerEl.insertAdjacentHTML('afterbegin', sharedView.getNavbarHTML());
+        sharedView.showFooter(footerEl);
+        const accountPopupEl = document.getElementById('account-popup');
+        const userView = new NewUserView();
+        userView.AccountPopupComponent(accountPopupEl);
+        const userController = new NewUserController();
+        userController.listeners();
+
+        const apController = new NewApartmentController();
+        const apView = new NewApartmentView();
+        // parametro `a` opcional, ex: `tipo=1&nome=espada#custo=0`
+        // o valor padrão é da URL atual
+        function GetQueryString(a) {
+            a = a || window.location.search.substr(1).split('&').concat(window.location.hash.substr(1).split("&"));
+            if (typeof a === "string")
+                a = a.split("#").join("&").split("&");
+            // se não há valores, retorna um objeto vazio
+            if (!a) return {};
+            var b = {};
+            for (var i = 0; i < a.length; ++i) {
+                // obtem array com chave/valor
+                var p = a[i].split('=');
+                // se não houver valor, ignora o parametro
+                if (p.length != 2) continue;
+                // adiciona a propriedade chave ao objeto de retorno
+                // com o valor decodificado, substituindo `+` por ` `
+                // para aceitar URLs codificadas com `+` ao invés de `%20`
+                b[p[0]] = decodeURIComponent(p[1].replace(/\+/g, " "));
+            }
+            // retorna o objeto criado
+            return b;
+        }
+
+        var qs = GetQueryString();
+
+        let uuid = qs["id"];
+
+        const apartmentLocationEl = document.getElementById('apartment-location');
+        const apartmentLocationHeaderEl = document.getElementById('apartment-location-header');
+
+        apController.findByUUID(uuid).then(
+                function (response) {
+                    if (response.status !== 200) {
+                        console.log('Looks like there was a problem. Status Code: ' +
+                            response.status);
+                        return;
+                    }
+                    response.json().then(function (data) {
+                        apView.showApartmentHeaderItem(apartmentLocationHeaderEl, data);
+                        apView.showApartmentLocation(apartmentLocationEl, data);
+                        gallery();
+                    });
+                }
+            )
+            .catch(function (err) {
+                console.log('Fetch Error :-S', err);
+            });
+
+
+        function gallery() {
+            $(document).ready(function () {
+
+                $('#image-gallery').lightSlider({
+                    gallery: true,
+                    item: 1,
+                    thumbItem: 9,
+                    slideMargin: 0,
+                    speed: 500,
+                    auto: true,
+                    loop: true,
+                    onSliderLoad: function () {
+                        $('#image-gallery').removeClass('cS-hidden');
+                    }
+                });
+            });
+        }
+    </script>
+    <script>
+        let opts = {
+            "locale": {
+                "format": "DD/MM/YYYY",
+                "separator": " - ",
+                "applyLabel": "Aplicar",
+                "cancelLabel": "Cancelar",
+                "daysOfWeek": [
+                    "Dom",
+                    "Seg",
+                    "Ter",
+                    "Qua",
+                    "Qui",
+                    "Sex",
+                    "Sab"
+                ],
+                "monthNames": [
+                    "Janeiro",
+                    "Fevereiro",
+                    "Março",
+                    "Abril",
+                    "Maio",
+                    "Junho",
+                    "Julho",
+                    "Agosto",
+                    "Setembro",
+                    "Outubro",
+                    "Novembro",
+                    "Dezembro"
+                ],
+                "firstDay": 1
+            }
+        }
+        $(document).ready(function () {
+            "use strict";
+
+            $('input[name="checkin"]').daterangepicker(
+                opts
+            );
+
+            $('input[name="checkout"]').daterangepicker(
+                opts
+            );
+        })
+    </script>
+
+</body>
+
+</html>

@@ -45,3 +45,34 @@ func (pgUserRepo *posgresApartmentImageRepo) CreateWithTx(ctx context.Context, i
 
 	return ID, nil
 }
+
+func (pgUserRepo *posgresApartmentImageRepo) FindByApartmenID(ctx context.Context, apartmentID int64) ([]*entities.ApartmentImage, error) {
+	return pgUserRepo.fetch(ctx, "SELECT id, uuid, apartment_id, file_name, file_size, url, created_at, updated_at FROM apartment_images WHERE apartment_id=$1", apartmentID)
+}
+
+func (pgUserRepo *posgresApartmentImageRepo) fetch(ctx context.Context, query string, args ...interface{}) ([]*entities.ApartmentImage, error) {
+	rows, err := pgUserRepo.db.QueryContext(ctx, query, args...)
+	if err != nil {
+		return nil, err
+	}
+	defer rows.Close()
+	payload := make([]*entities.ApartmentImage, 0)
+	for rows.Next() {
+		apartment := new(entities.ApartmentImage)
+		err := rows.Scan(
+			&apartment.ID,
+			&apartment.UUID,
+			&apartment.ApartmentID,
+			&apartment.FileName,
+			&apartment.FileSize,
+			&apartment.URL,
+			&apartment.CreatedAt,
+			&apartment.UpdatedAt,
+		)
+		if err != nil {
+			return nil, err
+		}
+		payload = append(payload, apartment)
+	}
+	return payload, nil
+}

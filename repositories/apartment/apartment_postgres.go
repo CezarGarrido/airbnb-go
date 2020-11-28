@@ -3,6 +3,7 @@ package apartment
 import (
 	"context"
 	"database/sql"
+	"errors"
 
 	entities "github.com/CezarGarrido/airbnb-go/entities"
 )
@@ -68,6 +69,18 @@ func (pgApartmentRepo *posgresApartmentRepo) Delete(ctx context.Context, apartme
 func (pgApartmentRepo *posgresApartmentRepo) FindAll(ctx context.Context) ([]*entities.Apartment, error) {
 	query := "SELECT id, uuid, user_id, name, description, street, city, state, country, guests, bedrooms, beds, baths, likes, price, status, created_at, updated_at FROM apartments;"
 	return pgApartmentRepo.fetch(ctx, query)
+}
+
+func (pgApartmentRepo *posgresApartmentRepo) FindByUUID(ctx context.Context, UUID string) (*entities.Apartment, error) {
+	query := "SELECT id, uuid, user_id, name, description, street, city, state, country, guests, bedrooms, beds, baths, likes, price, status, created_at, updated_at FROM apartments WHERE uuid=$1;"
+	rows, err := pgApartmentRepo.fetch(ctx, query, UUID)
+	if err != nil {
+		return nil, err
+	}
+	if len(rows) <= 0 {
+		return nil, errors.New("Apartamento não encontrado")
+	}
+	return rows[0], nil
 }
 
 // fetch

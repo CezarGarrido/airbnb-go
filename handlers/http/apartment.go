@@ -16,6 +16,7 @@ import (
 	apartmentImageRepo "github.com/CezarGarrido/airbnb-go/repositories/apartment/image"
 	"github.com/CezarGarrido/multi"
 	"github.com/google/uuid"
+	"github.com/gorilla/mux"
 )
 
 // NewApartment :
@@ -36,13 +37,36 @@ type Apartment struct {
 
 // FindAll :
 func (ap *Apartment) FindAll(w http.ResponseWriter, r *http.Request) {
-	apartments, err := ap.ApartmentRepo.FindAll(r.Context())
+
+	ctx := r.Context()
+
+	apartments, err := ap.ApartmentRepo.FindAll(ctx)
 	if err != nil {
 		log.Println(err.Error())
 		render.HTTPWriteJSON(w, http.StatusInternalServerError, "Internal Server Error")
 		return
 	}
+	for _, apartment := range apartments {
+		apartment.Images, _ = ap.ApartmentImageRepo.FindByApartmenID(ctx, apartment.ID)
+	}
+
 	render.HTTPWriteJSON(w, http.StatusOK, apartments)
+}
+
+// FindByUUID :
+func (ap *Apartment) FindByUUID(w http.ResponseWriter, r *http.Request) {
+
+	ctx := r.Context()
+
+	apartment, err := ap.ApartmentRepo.FindByUUID(ctx, mux.Vars(r)["uuid"])
+	if err != nil {
+		log.Println(err.Error())
+		render.HTTPWriteJSON(w, http.StatusInternalServerError, "Internal Server Error")
+		return
+	}
+	apartment.Images, _ = ap.ApartmentImageRepo.FindByApartmenID(ctx, apartment.ID)
+
+	render.HTTPWriteJSON(w, http.StatusOK, apartment)
 }
 
 // CreateFormData :
@@ -108,6 +132,7 @@ func (ap *Apartment) CreateFormData(w http.ResponseWriter, r *http.Request) {
 				ApartmentID: Apartment.ID,
 				FileName:    fileName,
 				FileSize:    files[i].Size,
+				URL:         "http://localhost:3000/storage/locations/images/" + fileName,
 			}
 
 			ApartmentImage.UUID = UUID

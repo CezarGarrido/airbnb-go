@@ -13,9 +13,9 @@ function NewSharedView() {
     }
 
     return {
-        showNavbar: showNavbar,
-        showFooter: showFooter,
-        getNavbarHTML: getNavbarHTML
+        showNavbar,
+        showFooter,
+        getNavbarHTML
     };
   }
   

@@ -5,7 +5,7 @@ function NewUserView() {
     }
 
     return {
-        AccountPopupComponent: AccountPopupComponent,
+        AccountPopupComponent,
     };
 }
 const accountPopupComponent = () => `
